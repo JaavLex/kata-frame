@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <body>
   <h1>kata-frame</h1>
   <form method="#" onsubmit="drawShapes(); return false">
     <table>
       <tr>
         <td>
-          <h2>CIRCLE</h2>
+          <h2>SQUARE</h2>
         </td>
         <td>
-          <h2>SQUARE</h2>
+          <h2>CIRCLE</h2>
         </td>
       </tr>
       <tr>
@@ -78,10 +79,12 @@
           </table>
         </td>
       </tr>
-    </table> 
+    </table>
     <input type="submit">
   </form>
-  <canvas id="canvas" width="1000" height="1000"></canvas>
+  <canvas id="canvas" width="500" height="500" style="border: 1px solid"></canvas>
+  <h4 id="alerting"></h4>
   <script type="text/javascript" src="index.js"></script>
 </body>
-</html> 
+
+</html>
