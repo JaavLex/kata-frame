@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>kata-frame</h1>
+  <form method="#" onsubmit="drawShapes(); return false">
+    <table>
+      <tr>
+        <td>
+          <h2>CIRCLE</h2>
+        </td>
+        <td>
+          <h2>SQUARE</h2>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table>
+            <tr>
+              <td>
+                <label for="sqX">X Coord</label>
+              </td>
+              <td>
+                <input type="number" id="sqX">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="sqY">Y Coord</label>
+              </td>
+              <td>
+                <input type="number" id="sqY">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="sqH">Height</label>
+              </td>
+              <td>
+                <input type="number" id="sqH">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="sqW">Width</label>
+              </td>
+              <td>
+                <input type="number" id="sqW">
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td>
+          <table>
+            <tr>
+              <td>
+                <label for="ciX">X Coord</label>
+              </td>
+              <td>
+                <input type="number" id="ciX">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="ciY">Y Coord</label>
+              </td>
+              <td>
+                <input type="number" id="ciY">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="ciR">Radius</label>
+              </td>
+              <td>
+                <input type="number" id="ciR">
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table> 
+    <input type="submit">
+  </form>
+  <canvas id="canvas" width="1000" height="1000"></canvas>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+</html> 
