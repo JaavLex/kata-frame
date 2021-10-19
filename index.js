@@ -1,20 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-function drawShapes() {
-  let square = {
-    x: parseInt(document.getElementById("sqX").value, 10) || 125,
-    y: parseInt(document.getElementById("sqY").value, 10) || 125,
-    w: parseInt(document.getElementById("sqW").value, 10) || 50,
-    h: parseInt(document.getElementById("sqH").value, 10) || 50
-  }
-
-  let circle = {
-    x: parseInt(document.getElementById("ciX").value, 10) || 425,
-    y: parseInt(document.getElementById("ciY").value, 10) || 425,
-    r: parseInt(document.getElementById("ciR").value, 10) || 100
-  }
-
+function getFrame(square, circle) {
   let xFrameValues = () => {
     let x1 = 0;
     let x2 = 0;
@@ -34,15 +21,31 @@ function drawShapes() {
     if (circle.y + circle.r > y2) y2 = circle.y + circle.r;
     return { y1: y1, y2: y2 };
   }
+  return { xFVal: xFrameValues(), yFVal: yFrameValues() };
+}
 
-  let frame = {
-    x: xFrameValues().x1,
-    y: yFrameValues().y1,
-    w: xFrameValues().x2 - xFrameValues().x1,
-    h: yFrameValues().y2 - yFrameValues().y1
+function drawShapes() {
+  let square = {
+    x: parseInt(document.getElementById("sqX").value, 10) || 125,
+    y: parseInt(document.getElementById("sqY").value, 10) || 125,
+    w: parseInt(document.getElementById("sqW").value, 10) || 50,
+    h: parseInt(document.getElementById("sqH").value, 10) || 50
   }
 
-  if (xFrameValues().x1 < 0 || xFrameValues().x2 > 500 || yFrameValues().y1 < 0 || yFrameValues().y2 > 500) {
+  let circle = {
+    x: parseInt(document.getElementById("ciX").value, 10) || 300,
+    y: parseInt(document.getElementById("ciY").value, 10) || 300,
+    r: parseInt(document.getElementById("ciR").value, 10) || 100
+  }
+
+  let frame = {
+    x: getFrame(square, circle).xFVal.x1,
+    y: getFrame(square, circle).yFVal.y1,
+    w: getFrame(square, circle).xFVal.x2 - getFrame(square, circle).xFVal.x1,
+    h: getFrame(square, circle).yFVal.y2 - getFrame(square, circle).yFVal.y1
+  }
+
+  if (getFrame(square, circle).xFVal.x1 < 0 || getFrame(square, circle).xFVal.x2 > 500 || getFrame(square, circle).yFVal.y1 < 0 || getFrame(square, circle).yFVal.y2 > 500) {
     document.getElementById("alerting").innerHTML = "INVALID";
     document.getElementById("canvas").style = "border: 1px solid; border-color: red";
   } else {
@@ -62,6 +65,28 @@ function drawShapes() {
   ctx.stroke();
   ctx.fill();
   ctx.strokeRect(frame.x, frame.y, frame.w, frame.h);
+}
+
+function randomVals() {
+  let sqXCoord = Math.floor(Math.random() * 450);
+  let sqYCoord = Math.floor(Math.random() * 450);
+  let sqWidth = Math.floor(Math.random() * (500 - sqXCoord))
+  let sqHeight = Math.floor(Math.random() * (500 - sqYCoord))
+  let ciXCoord = Math.floor(Math.random() * 450);
+  let ciYCoord = Math.floor(Math.random() * 450);
+  let ciRadius = 1000;
+
+  while (ciRadius > 500 - ciXCoord || ciRadius > 500 - ciYCoord || ciXCoord - ciRadius < 0 || ciYCoord - ciRadius < 0) {
+    ciRadius = Math.floor(Math.random() * 450) + 1;
+  }
+
+  document.getElementById("sqX").value = sqXCoord;
+  document.getElementById("sqY").value = sqYCoord;
+  document.getElementById("sqW").value = sqWidth;
+  document.getElementById("sqH").value = sqHeight;
+  document.getElementById("ciX").value = ciXCoord;
+  document.getElementById("ciY").value = ciYCoord;
+  document.getElementById("ciR").value = ciRadius;
 }
 
 document.onload = drawShapes();
