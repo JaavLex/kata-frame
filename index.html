@@ -18,34 +18,34 @@
           <table>
             <tr>
               <td>
-                <label for="sqX">X Coord</label>
+                <label for="reX">X Coord</label>
               </td>
               <td>
-                <input type="number" id="sqX">
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label for="sqY">Y Coord</label>
-              </td>
-              <td>
-                <input type="number" id="sqY">
+                <input type="number" id="reX">
               </td>
             </tr>
             <tr>
               <td>
-                <label for="sqH">Height</label>
+                <label for="reY">Y Coord</label>
               </td>
               <td>
-                <input type="number" id="sqH">
+                <input type="number" id="reY">
               </td>
             </tr>
             <tr>
               <td>
-                <label for="sqW">Width</label>
+                <label for="reH">Height</label>
               </td>
               <td>
-                <input type="number" id="sqW">
+                <input type="number" id="reH">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="reW">Width</label>
+              </td>
+              <td>
+                <input type="number" id="reW">
               </td>
             </tr>
           </table>
@@ -81,7 +81,8 @@
       </tr>
     </table>
     <input type="submit">
-    <button id="randomize" onclick="randomVals()">Random</button>
+    <button id="randomize" onclick="randomVals()">Random Valid</button>
+    <button id="randomize" onclick="randomInvalidVals()">Random Invalid</button>
   </form>
   <canvas id="canvas" width="500" height="500" style="border: 1px solid"></canvas>
   <h4 id="alerting"></h4>

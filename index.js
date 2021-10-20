@@ -77,8 +77,26 @@ function randomVals() {
   let ciRadius = 1000;
 
   while (ciRadius > 500 - ciXCoord || ciRadius > 500 - ciYCoord || ciXCoord - ciRadius < 0 || ciYCoord - ciRadius < 0) {
-    ciRadius = Math.floor(Math.random() * 450) + 1;
+    ciRadius = Math.floor(Math.random() * 225) + 1;
   }
+
+  document.getElementById("reX").value = reXCoord;
+  document.getElementById("reY").value = reYCoord;
+  document.getElementById("reW").value = reWidth;
+  document.getElementById("reH").value = reHeight;
+  document.getElementById("ciX").value = ciXCoord;
+  document.getElementById("ciY").value = ciYCoord;
+  document.getElementById("ciR").value = ciRadius;
+}
+
+function randomInvalidVals() {
+  let reXCoord = Math.floor(Math.random() * 450) + Math.floor(Math.random() * 100);
+  let reYCoord = Math.floor(Math.random() * 450) + Math.floor(Math.random() * 100);
+  let reWidth = Math.floor(Math.random() * 450) + Math.floor(Math.random() * (500 - reXCoord));
+  let reHeight = Math.floor(Math.random() * 450) + Math.floor(Math.random() * (500 - reYCoord));
+  let ciXCoord = Math.floor(Math.random() * 450) + Math.floor(Math.random() * 100);
+  let ciYCoord = Math.floor(Math.random() * 450) + Math.floor(Math.random() * 100);
+  let ciRadius = Math.floor(Math.random() * 225) + 1;
 
   document.getElementById("reX").value = reXCoord;
   document.getElementById("reY").value = reYCoord;
